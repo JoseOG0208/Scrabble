@@ -1,0 +1,4 @@
+pez 1
+arroz 2
+escalera 3
+comodidad 4
