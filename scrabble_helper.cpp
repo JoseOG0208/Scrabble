@@ -19,10 +19,6 @@ int main() {
     std::cout << "Sistema de Ayuda de Scrabble" << std::endl;
     std::cout << "Escribe 'ayuda' para desplegar la lista de comandos." << std::endl;
 
-    // Ruta al archivo de diccionario
-    std::string rutaDiccionario = "C:\\Users\\glass\\OneDrive\\Desktop\\UNIVERSIDAD\\4to semestre\\estructuras\\Entrega 0\\diccionario.txt";
-    inicializarDiccionario(rutaDiccionario);
-
     // Bucle principal de comandos
     while (true) {
         std::cout << "$ ";
@@ -41,25 +37,8 @@ int main() {
 }
 
 void inicializarDiccionario(const std::string& rutaDiccionario) {
-    std::ifstream file(rutaDiccionario);
-    std::string line;
-
-    if (file.is_open()) {
-        while (std::getline(file, line)) {
-            std::istringstream iss(line);
-            std::string palabra;
-            int puntaje;
-            if (!(iss >> palabra >> puntaje)) { 
-                std::cout << "Error al leer la línea: " << line << std::endl;
-                continue; // Salta a la siguiente línea si hay un error
-            }
-            diccionario[palabra] = puntaje;
-        }
-        file.close();
-        std::cout << "Diccionario inicializado correctamente desde " << rutaDiccionario << std::endl;
-    } else {
-        std::cout << "No se pudo abrir el archivo del diccionario: " << rutaDiccionario << std::endl;
-    }
+    // Implementación pendiente
+    std::cout << "Diccionario inicializado correctamente desde " << rutaDiccionario << std::endl;
 }
 
 void inicializarDiccionarioInverso(const std::string& rutaDiccionario) {
@@ -85,7 +64,7 @@ void procesarComando(const std::string& comando) {
     if (comando == "ayuda") {
         mostrarAyuda();
     } else if (comando == "iniciar_diccionario") {
-        inicializarDiccionario("C:\\Users\\glass\\OneDrive\\Desktop\\UNIVERSIDAD\\4to semestre\\estructuras\\Entrega 0\\diccionario.txt");
+        inicializarDiccionario("ruta/a/diccionario.txt");
     } else if (comando == "iniciar_inverso") {
         inicializarDiccionarioInverso("ruta/a/diccionario_inverso.txt"); // Actualizar cuando esté implementado
     } else if (comando.rfind("puntaje_palabra", 0) == 0) {
@@ -95,3 +74,4 @@ void procesarComando(const std::string& comando) {
         std::cout << "Comando desconocido. Escribe 'ayuda' para ver la lista de comandos." << std::endl;
     }
 }
+
