@@ -32,8 +32,8 @@ Este programa es un sistema de ayuda para el juego Scrabble. Permite a los usuar
    Una vez que el programa esté ejecutándose, puedes utilizar los siguientes comandos:
 
 -  'ayuda': Muestra un mensaje de ayuda con todos los comandos disponibles.
--  'iniciar_diccionario [ruta]': Inicializa el diccionario principal con la ruta al archivo de diccionario.
--  'iniciar_inverso [ruta]': Inicializa el diccionario inverso con la ruta al archivo de diccionario inverso.
+-  'iniciar_diccionario': Inicializa el diccionario principal con la ruta al archivo de diccionario.
+-  'iniciar_inverso': Inicializa el diccionario inverso con la ruta al archivo de diccionario inverso.
 -  'puntaje_palabra [palabra]': Calcula y muestra el puntaje de una palabra específica.
 -  'salir': Termina la ejecución del programa.
 
