@@ -54,8 +54,8 @@ void puntajePalabra(const std::string& palabra) {
 void mostrarAyuda() {
     std::cout << "Comandos disponibles:" << std::endl;
     std::cout << "  ayuda                    - Muestra este mensaje de ayuda" << std::endl;
-    std::cout << "  iniciar_diccionario      - Inicializa el diccionario" << std::endl;
-    std::cout << "  iniciar_inverso          - Inicializa el diccionario inverso" << std::endl;
+    std::cout << "  inicializar diccionario.txt      - Inicializa el diccionario" << std::endl;
+    std::cout << "  inicializar inverso.txt          - Inicializa el diccionario inverso" << std::endl;
     std::cout << "  puntaje_palabra [palabra]- Muestra el puntaje de una palabra" << std::endl;
     std::cout << "  salir                    - Sale del programa" << std::endl;
 }
