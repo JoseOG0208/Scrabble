@@ -3,6 +3,8 @@
 #include <sstream>
 #include <string>
 #include <map>
+#include <unordered_map>
+#include <cctype>
 
 // Declaraciones de funciones
 void inicializarDiccionario(const std::string& rutaDiccionario);
@@ -10,6 +12,9 @@ void inicializarDiccionarioInverso(const std::string& rutaDiccionario);
 void puntajePalabra(const std::string& palabra);
 void mostrarAyuda();
 void procesarComando(const std::string& comando);
+bool verificarPalabra(std::string palabra);
+int calcularPuntaje(std::string palabra);
+std::string enMinuscula(std::string palabra); 
 
 // Diccionario principal donde la clave es la palabra y el valor es la puntuación
 std::map<std::string, int> diccionario;
@@ -37,8 +42,31 @@ int main() {
 }
 
 void inicializarDiccionario(const std::string& rutaDiccionario) {
-    // Implementación pendiente
+    std::ifstream archivo(rutaDiccionario);
+    if (!archivo.is_open()){
+            std::cerr << "El archivo diccionario.txt no existe o no puede ser leído." << rutaDiccionario << std::endl;
+            return;
+    }
+    std::string palabra;
+    while (std::getline(archivo, palabra)) {
+        if (verificarPalabra(palabra)){
+            diccionario[enMinuscula(palabra)] = calcularPuntaje(palabra);
+            std::cout<<"palabra: "<<palabra<<" "<<"puntaje: "<<diccionario[palabra];
+            std::cout<<"Se agrego correctamente"<<std::endl; 
+        }
+        else{
+            std::cout<<"La palabra: "<<palabra<<" no se agrego ya que contiene algun caracter invalido"<<std::endl;  
+        }
+    }
+    
+    // Cerrar el archivo
+    archivo.close();
     std::cout << "Diccionario inicializado correctamente desde " << rutaDiccionario << std::endl;
+    for (const auto& par : diccionario) {
+        std::cout << "Clave: " << par.first << ", Valor: " << par.second << std::endl;
+    }
+    
+    
 }
 
 void inicializarDiccionarioInverso(const std::string& rutaDiccionario) {
@@ -64,7 +92,7 @@ void procesarComando(const std::string& comando) {
     if (comando == "ayuda") {
         mostrarAyuda();
     } else if (comando == "iniciar_diccionario") {
-        inicializarDiccionario("ruta/a/diccionario.txt");
+        inicializarDiccionario("diccionario.txt");
     } else if (comando == "iniciar_inverso") {
         inicializarDiccionarioInverso("ruta/a/diccionario_inverso.txt"); // Actualizar cuando esté implementado
     } else if (comando.rfind("puntaje_palabra", 0) == 0) {
@@ -75,3 +103,41 @@ void procesarComando(const std::string& comando) {
     }
 }
 
+int calcularPuntaje(std::string palabra){
+      std::unordered_map<char, int> puntajes {
+        {'E', 1}, {'A', 1}, {'I', 1}, {'O', 1}, {'N', 1},
+        {'R', 1}, {'T', 1}, {'L', 1}, {'S', 1}, {'U', 1},
+        {'D', 2}, {'G', 2},
+        {'B', 3}, {'C', 3}, {'M', 3}, {'P', 3},
+        {'F', 4}, {'H', 4}, {'V', 4}, {'W', 4}, {'Y', 4},
+        {'K', 5},
+        {'J', 8}, {'X', 8},
+        {'Q', 10}, {'Z', 10}
+    };
+
+    int puntajePalabra = 0;
+    for (int i = 0; i < palabra.length(); i++){
+        puntajePalabra += puntajes[toupper(palabra[i])];
+    }
+
+    return puntajePalabra;
+}
+
+bool verificarPalabra(std::string palabra){
+    for(int i = 0; i < palabra.length(); i++){
+        if (!isalpha(palabra[i])){
+            std::cout<<palabra[i]<<std::endl;
+            return false;  
+        }
+    }
+    return true;
+}
+
+
+std::string enMinuscula(std::string palabra){
+    std::string palabraMinuscula; 
+    for (int i = 0; i < palabra.length(); i++){
+        palabraMinuscula[i] = tolower(palabra[i]);
+    }
+    return palabraMinuscula; 
+}

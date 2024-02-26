@@ -1,4 +1,10 @@
-pez 1
-arroz 2
-escalera 3
-comodidad 4
+zebra
+Quilt
+Jazz
+Pixel
+Koala
+Quick
+Buzz
+Jigsaw
+Oxymoron
+Ivory
