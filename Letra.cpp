@@ -1,13 +1,15 @@
 #include "Letra.h"
-
+#include <iostream>
 
      Letra::Letra(){
         puntaje = 0;
     }
 
     Letra::Letra(char v){
-        setPuntaje(calcularPuntaje(v));
-        setValor(v);
+        //puntaje = 0;
+        valor = toupper(v);
+        puntaje = calcularPuntaje(valor);
+       // std::cout<<'<'<<puntaje<<'>'<<std::endl;
     }
 
     // Getter para obtener el puntaje
@@ -46,6 +48,18 @@
     } else if (v == 'Q' || v == 'Z') {
         puntaje = 10;
     }
+    else
+        puntaje = 11;
     return puntaje;
 
     }
+
+bool Letra::verificarValor(){
+    if (isalpha(valor)){
+        return true;  
+    }
+    else{
+        std::cout<<"no fue agregada la letra porque el simbolo: "<<valor<<" es invalido"<<std::endl;
+        return false;
+    }
+}

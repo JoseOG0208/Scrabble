@@ -15,6 +15,7 @@ public:
     char getValor(); 
     void setValor(char v); 
     int calcularPuntaje (char v); 
+    bool verificarValor();
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "Diccionario.h"
 #include <iostream>
+#include <string> 
 // Constructor por defecto
 Diccionario::Diccionario() {}
 
@@ -22,12 +23,10 @@ void Diccionario::agregarPalabra(Palabra palabra){
     palabras.push_back(palabra);
 }
 
-bool verificarPalabra(std::string palabra){
-    for(int i = 0; i < palabra.length(); i++){
-        if (!isalpha(palabra[i])){
-            std::cout<<"La palabra contiene signos invalidos"<<std::endl;
-            return false;  
-        }
+std::string Diccionario::imprimirPalabras(){
+    std::string aux;
+    for (Palabra p : palabras){
+        aux += " " + p.imprimirLetras();
     }
-    return true;
-}
+    return aux;
+};

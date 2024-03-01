@@ -1,5 +1,5 @@
-#ifndef Diccionario_H   
-#define Diccionario_H
+#ifndef DICCIONARIO_H   
+#define DICCIONARIO_H
 #include <List>
 #include <String>
 #include"Palabra.h"
@@ -13,8 +13,7 @@ public:
     std::list <Palabra> getPalabras();
     void setPalabras(std::list <Palabra> palabras);
     void agregarPalabra(Palabra palabra);
-    bool verificarPalabra(std::string palabra);
-
+    std::string imprimirPalabras();
 };
 
 #endif

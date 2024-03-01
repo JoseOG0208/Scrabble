@@ -1,13 +1,10 @@
     #include <iostream>
     #include <cstring>
+    #include "Sistema.h"
+    #include "ProcesadorComandos.h"
     using namespace std;
-
-    #include "Consola.h"
-
     int main() {
-        //Variable donde se guardará, de manera cíclica, la entrada del usuario (los comandos establecidos)
+        Sistema ayudaScrabble;
         char *entrada = new char[1024];
-        recibirComando(entrada);
-        
-        
+        ayudaScrabble.recibirComando(entrada);
     }

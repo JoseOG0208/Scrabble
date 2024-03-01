@@ -6,11 +6,11 @@
  class ProcesadorComandos{
   public:  
     static Diccionario inicializarDiccionario(std::string rutaDiccionario);
-    static void inicializarDiccionarioInverso(std::string rutaDiccionario);
-    static void puntajePalabra(std::string palabra);
-    static bool verificarPalabra(std::string palabra);
+    static Diccionario inicializarDiccionarioInverso(std::string rutaDiccionario);
+    static int puntajePalabra(std::string palabra, std::list<Palabra> palabrasInversas, std::list<Palabra> palabrasNormales);
     static int calcularPuntaje(std::string palabra);
-    static std::string enMinuscula(std::string palabra); 
+    static std::string enMayuscula(std::string palabra); 
+    static bool validarPalabra(std::string palabra);
 
     //Métodos de Búsqueda de Palabras
     static void iniciarArbolDiccionario( std::string pathDiccionario);

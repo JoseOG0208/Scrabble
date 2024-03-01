@@ -18,9 +18,8 @@ class Palabra {
     std::list<Letra>palabraInversa(); 
     int calcularPuntaje();
     void agregarLetra(Letra l);
-
-    
-    
+    std::string imprimirLetras();
+    std::string stringPalabra();
 };
 
 
