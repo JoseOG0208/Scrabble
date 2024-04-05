@@ -3,7 +3,7 @@
 # Integrantes del grupo:
 -Daniel Rosas
 -Jose David Ontiveros
--Sebastian Forero
+-Jorge Gomez
 -David Hernandez
 
 ## Descripción
