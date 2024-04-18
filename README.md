@@ -1,10 +1,9 @@
 # Scrabble Helper System
 
 # Integrantes del grupo:
--Daniel Rosas
--Jose David Ontiveros
 -Jorge Gomez
 -David Hernandez
+-Jose David Ontiveros
 
 ## Descripción
 Este programa es un sistema de ayuda para el juego Scrabble. Permite a los usuarios inicializar un diccionario de palabras válidas, un diccionario inverso para búsquedas eficientes, y obtener el puntaje de palabras específicas de acuerdo con las reglas de Scrabble.
