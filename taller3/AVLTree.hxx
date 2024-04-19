@@ -138,7 +138,7 @@ AVLNode<T> * AVLTree<T>::insertNode(AVLNode<T> * node, T val) {
   if (balance > 1 && val < node -> getLeftChild() -> getData())
     return rightRotate(node);
 
-  // Caso Derecha - Derecha
+  // Caso Derecha - Derechaf
   if (balance < -1 && val > node -> getRightChild() -> getData())
     return leftRotate(node);
 

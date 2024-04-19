@@ -15,5 +15,5 @@ public:
     void agregarPalabra(Palabra palabra);
     std::string imprimirPalabras();
 };
-
+#include "Diccionario.cpp"
 #endif

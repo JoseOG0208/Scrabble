@@ -22,5 +22,5 @@ class Palabra {
     std::string stringPalabra();
 };
 
-
+#include "Palabra.cpp"
 #endif

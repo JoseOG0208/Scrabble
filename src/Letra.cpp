@@ -5,6 +5,10 @@
         puntaje = 0;
     }
 
+    bool operator==(Letra letra1, Letra letra2){
+        return letra1.getValor() == letra2.getValor();
+    }
+
     Letra::Letra(char v){
         //puntaje = 0;
         valor = toupper(v);
@@ -31,6 +35,23 @@
     void Letra::setValor(char v) {
         valor = v;
     }
+
+    void Letra::setPalabraPuntaje(int p) {
+        puntajePalabra = p;
+    }
+
+    int Letra::getPuntajePalabra(){
+        return puntajePalabra;
+    }
+
+    void Letra::setPalabra(std::string p){
+        palabra = p;
+    }
+
+    std::string Letra::getPalabra(){
+        return palabra;
+    }
+
 
     int Letra::calcularPuntaje (char v){
     if (v == 'A' || v == 'E' || v == 'I' || v == 'L' || v == 'N' || v == 'O' || v == 'R' || v == 'S' || v == 'T' || v == 'U') {

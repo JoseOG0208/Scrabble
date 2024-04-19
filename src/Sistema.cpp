@@ -10,6 +10,7 @@ Sistema::Sistema() {
 Sistema::Sistema(Diccionario dN, Diccionario dI) {
     diccionarioInverso = dI;
     diccionarioNormal = dN;
+    //arbolInverso
 }
 Diccionario Sistema::getDiccionarioInverso() { return diccionarioInverso; }
 void Sistema::setDiccionarioInverso(Diccionario dI) { diccionarioInverso = dI; }
@@ -82,7 +83,7 @@ void Sistema::ayudaComando(const char *comandoAyuda) {
                   << std::endl;
 
     } else if (strcmp(comandoAyuda, "grafo_de_palabras") == 0) {
-        std::cout << "UUso comando: grafo_de_palabras " << std::endl;
+        std::cout << "Uso comando: grafo_de_palabras " << std::endl;
         std::cout << "Descripcion: con las palabras ya almacenadas en el "
                      "diccionario, construye un grafo de palabras, en donde "
                      "cada palabra se conecta a las demas si y solo si "
@@ -176,15 +177,33 @@ void Sistema::recibirComando(char *comando) {
 
         // Métodos de Búsqueda de Palabras
         else if (strcmp(comando1, "iniciar_arbol") == 0) {
-            std::string parametro = comando2;
-            ProcesadorComandos::iniciarArbolDiccionario(parametro);
+            if (arbolNormal.getRoot()->getChildrenRef()->empty()){
+                std::string parametro = comando2;
+                ProcesadorComandos::iniciarArbolDiccionario(parametro, &arbolNormal);
+                std::cout<<"El arbol del diccionario  se ha inicializado correctamente."<<std::endl;
+            }
+            else{
+                std::cout<<"El arbol del diccionario ya ha sido inicializado."<<std::endl;
+            }
         } else if (strcmp(comando1, "iniciar_arbol_inverso") == 0) {
+            if (arbolNormal.getRoot()->getChildrenRef()->empty()){
+                std::string parametro = comando2;
+                ProcesadorComandos::iniciarArbolDiccionarioInverso(parametro, &arbolInverso);
+                std::cout<<"El arbol del diccionario inverso se ha inicializado correctamente."<<std::endl;
+            }
+            else{
+                std::cout<<"El arbol del diccionario inverso ya ha sido inicializado."<<std::endl;
+            }
             std::string parametro = comando2;
-            ProcesadorComandos::iniciarArbolDiccionarioInverso(parametro);
+            ProcesadorComandos::iniciarArbolDiccionarioInverso(parametro, &arbolInverso);
         } else if (strcmp(comando1, "palabras_por_prefijo") == 0) {
             std::string parametro = comando2;
-            ProcesadorComandos::palabrasPorPrefijo(parametro);
+            std::list<std::string> palabrasEncontradas;
+            ProcesadorComandos::pruebaPalabrasPrefijo(parametro, arbolNormal.getRoot());
         } else if (strcmp(comando1, "palabras_por_sufijo") == 0) {
+            std::string parametro = comando2;
+            std::list<std::string> palabrasEncontradas;
+            ProcesadorComandos::palabrasPorSufijo(parametro, arbolInverso.getRoot());
         }
 
         // Métodos de Combinaciones de Letras
